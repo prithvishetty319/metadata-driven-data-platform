@@ -1,0 +1,29 @@
+{
+  "columnLineage": {
+    "claim_id": "claim_id",
+    "diagnosis_group": "diagnosis_group",
+    "member_id": "member_id",
+    "paid_amount": "paid_amount",
+    "service_date": "service_date"
+  },
+  "eventType": "COMPLETE",
+  "inputs": [
+    {
+      "name": "abfss://landing/claims/daily",
+      "namespace": "adls_batch"
+    }
+  ],
+  "job": {
+    "name": "claims_daily",
+    "namespace": "metadata-platform"
+  },
+  "outputs": [
+    {
+      "name": "healthcare.gold.claims_daily",
+      "namespace": "delta"
+    }
+  ],
+  "ownership": {
+    "owner": "healthcare-data@company.example"
+  }
+}

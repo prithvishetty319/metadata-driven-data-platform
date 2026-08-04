@@ -1,0 +1,26 @@
+version: 2
+models:
+- name: payments_streaming
+  description: Low-latency payment-event ingestion with contract enforcement.
+  columns:
+  - name: payment_id
+    description: 'Classification: restricted'
+    data_tests:
+    - not_null
+    - unique
+  - name: claim_id
+    description: 'Classification: restricted'
+    data_tests:
+    - not_null
+  - name: amount
+    description: 'Classification: confidential'
+    data_tests:
+    - not_null
+  - name: currency
+    description: 'Classification: internal'
+    data_tests:
+    - not_null
+  - name: event_time
+    description: 'Classification: internal'
+    data_tests:
+    - not_null

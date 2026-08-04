@@ -1,0 +1,25 @@
+name: claims_daily
+description: Governed daily claims fact for utilization and financial reporting.
+owner: healthcare-data@company.example
+schedule: "0 5 * * *"
+source:
+  type: adls_batch
+  path: abfss://landing/claims/daily
+target:
+  catalog: healthcare
+  schema: gold
+  table: claims_daily
+  mode: overwrite_partition
+  keys: [claim_id]
+columns:
+  - {name: claim_id, type: string, nullable: false, classification: restricted}
+  - {name: member_id, type: string, nullable: false, classification: restricted}
+  - {name: service_date, type: date, nullable: false, classification: confidential}
+  - {name: paid_amount, type: decimal, nullable: false, classification: confidential}
+  - {name: diagnosis_group, type: string, nullable: true, classification: confidential}
+quality:
+  - {type: not_null, column: claim_id}
+  - {type: non_negative, column: paid_amount}
+dependencies: [members_cdc]
+sla_minutes: 90
+

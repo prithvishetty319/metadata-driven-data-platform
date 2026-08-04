@@ -1,0 +1,12 @@
+{
+  "pipelines_compiled": 3,
+  "generated_assets": 18,
+  "generated_python_checked": 6,
+  "deployment_order": [
+    "members_cdc",
+    "claims_daily",
+    "payments_streaming"
+  ],
+  "deterministic": true,
+  "manifest_sha256": "c65e9371295bb21c6f56e29dc8c2c3e68e90299930c49b6c21d1247dcd04e28c"
+}

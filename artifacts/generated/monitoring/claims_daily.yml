@@ -1,0 +1,17 @@
+groups:
+- name: mdp_claims_daily
+  rules:
+  - alert: claims_daily_SlaBreach
+    expr: mdp_pipeline_duration_minutes{pipeline="claims_daily"} > 90
+    for: 5m
+    labels:
+      severity: critical
+      owner: healthcare-data@company.example
+    annotations:
+      summary: claims_daily exceeded its 90-minute SLA
+  - alert: claims_daily_QualityFailure
+    expr: mdp_quality_success{pipeline="claims_daily"} == 0
+    for: 2m
+    labels:
+      severity: warning
+      owner: healthcare-data@company.example

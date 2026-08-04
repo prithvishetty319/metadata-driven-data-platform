@@ -1,0 +1,84 @@
+{
+  "compiler_version": "1.0.0",
+  "deployment_order": [
+    "members_cdc",
+    "claims_daily",
+    "payments_streaming"
+  ],
+  "files": [
+    {
+      "path": "airflow/claims_daily_dag.py",
+      "sha256": "d9187db42dfc5f82e6462b9ce497c3d096a880378fd7818535d8930c92781225"
+    },
+    {
+      "path": "airflow/members_cdc_dag.py",
+      "sha256": "c9c51e768ed7d4604fcdd7f201df10d0c1ea44c34c9e6802a53478b8ea9395f9"
+    },
+    {
+      "path": "airflow/payments_streaming_dag.py",
+      "sha256": "af07297007451dcb1db3167cf2c5537887bfcbaed9a5a5ad1113355d3f215f7b"
+    },
+    {
+      "path": "dbt/models/claims_daily.sql",
+      "sha256": "cb9c9b85f637855b4dafce7d0d46ebadc4e95732cdea9b96fd87b0c98be8ea3f"
+    },
+    {
+      "path": "dbt/models/claims_daily.yml",
+      "sha256": "2de0af910ff2a6f94992d03b43c5332f9fb6c5ec1ee7cf61626b501ef1dd8e23"
+    },
+    {
+      "path": "dbt/models/members_cdc.sql",
+      "sha256": "1820ccb017cbe3cd0da58d9b4d878f586706e910d80e430f7db209acd079c38c"
+    },
+    {
+      "path": "dbt/models/members_cdc.yml",
+      "sha256": "b42b45d489d34b7eb06bd66df033d582407cc71950dc054749e501385a0a8c81"
+    },
+    {
+      "path": "dbt/models/payments_streaming.sql",
+      "sha256": "5a7da0d6e651bbbdb632bf49f760dd7b55d30587f434465196a1fe868d77516f"
+    },
+    {
+      "path": "dbt/models/payments_streaming.yml",
+      "sha256": "44c36ff1254a051cd3671ba9e7276b13968a4936a42c7ad2c69a5bda5109f94d"
+    },
+    {
+      "path": "lineage/claims_daily.json",
+      "sha256": "0eb01ad58c6b1992dc3b9b87fd4929f1cd90277bc1fdbf1be24d519c3c0ee819"
+    },
+    {
+      "path": "lineage/members_cdc.json",
+      "sha256": "54ad67d21f44b82db7d5b21c182807abced91afef708a4f719713f0c789286f4"
+    },
+    {
+      "path": "lineage/payments_streaming.json",
+      "sha256": "9e3eb42bbd06e57afe031b633f22edf69efac4d83aa2db30272da305fbfc9762"
+    },
+    {
+      "path": "monitoring/claims_daily.yml",
+      "sha256": "2428dd6a0d2d0678e23735d7529ff08806a63e0751e63513449470ed2c6bb01a"
+    },
+    {
+      "path": "monitoring/members_cdc.yml",
+      "sha256": "4e00da3c3873ec365c256b967fad9390a2be4c39b4fd949a7adeb4c34e772e4d"
+    },
+    {
+      "path": "monitoring/payments_streaming.yml",
+      "sha256": "f656597041f8d3bcece77064985eff46cfdd95e5a8ffd7247e286d3495473944"
+    },
+    {
+      "path": "spark/claims_daily_job.py",
+      "sha256": "67bc42b9426943ed04c70321d5c50502d7268aea82720809e91bd06df606321b"
+    },
+    {
+      "path": "spark/members_cdc_job.py",
+      "sha256": "cb3efc8c88d5b62841077a0d93e52bdc5776e28b65641730b48d4ad90b1dc4f1"
+    },
+    {
+      "path": "spark/payments_streaming_job.py",
+      "sha256": "0816ebe2ba8b275f8f2bf116b7397f9906eaba3aeee8477b60dfb48cb599881f"
+    }
+  ],
+  "manifest_sha256": "c65e9371295bb21c6f56e29dc8c2c3e68e90299930c49b6c21d1247dcd04e28c",
+  "pipelines": 3
+}

@@ -1,0 +1,29 @@
+{
+  "columnLineage": {
+    "amount": "amount",
+    "claim_id": "claim_id",
+    "currency": "currency",
+    "event_time": "event_time",
+    "payment_id": "payment_id"
+  },
+  "eventType": "COMPLETE",
+  "inputs": [
+    {
+      "name": "payments.v1",
+      "namespace": "kafka_stream"
+    }
+  ],
+  "job": {
+    "name": "payments_streaming",
+    "namespace": "metadata-platform"
+  },
+  "outputs": [
+    {
+      "name": "finance.silver.payments",
+      "namespace": "delta"
+    }
+  ],
+  "ownership": {
+    "owner": "payments-data@company.example"
+  }
+}

@@ -1,0 +1,17 @@
+groups:
+- name: mdp_members_cdc
+  rules:
+  - alert: members_cdc_SlaBreach
+    expr: mdp_pipeline_duration_minutes{pipeline="members_cdc"} > 20
+    for: 5m
+    labels:
+      severity: critical
+      owner: healthcare-data@company.example
+    annotations:
+      summary: members_cdc exceeded its 20-minute SLA
+  - alert: members_cdc_QualityFailure
+    expr: mdp_quality_success{pipeline="members_cdc"} == 0
+    for: 2m
+    labels:
+      severity: warning
+      owner: healthcare-data@company.example

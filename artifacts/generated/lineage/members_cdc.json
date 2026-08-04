@@ -1,0 +1,29 @@
+{
+  "columnLineage": {
+    "effective_date": "effective_date",
+    "member_id": "member_id",
+    "plan_id": "plan_id",
+    "source_sequence": "source_sequence",
+    "state_code": "state_code"
+  },
+  "eventType": "COMPLETE",
+  "inputs": [
+    {
+      "name": "core.members",
+      "namespace": "postgres_cdc"
+    }
+  ],
+  "job": {
+    "name": "members_cdc",
+    "namespace": "metadata-platform"
+  },
+  "outputs": [
+    {
+      "name": "healthcare.silver.members_current",
+      "namespace": "delta"
+    }
+  ],
+  "ownership": {
+    "owner": "healthcare-data@company.example"
+  }
+}

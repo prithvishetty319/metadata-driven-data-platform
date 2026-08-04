@@ -1,0 +1,25 @@
+name: members_cdc
+description: Current member dimension maintained from database change events.
+owner: healthcare-data@company.example
+schedule: "*/10 * * * *"
+source:
+  type: postgres_cdc
+  table: core.members
+target:
+  catalog: healthcare
+  schema: silver
+  table: members_current
+  mode: merge
+  keys: [member_id]
+columns:
+  - {name: member_id, type: string, nullable: false, classification: restricted}
+  - {name: plan_id, type: string, nullable: false, classification: confidential}
+  - {name: state_code, type: string, nullable: true, classification: confidential}
+  - {name: effective_date, type: date, nullable: false, classification: confidential}
+  - {name: source_sequence, type: long, nullable: false, classification: internal}
+quality:
+  - {type: not_null, column: member_id}
+  - {type: accepted_values, column: state_code, values: [CA, NY, TX, WA]}
+dependencies: []
+sla_minutes: 20
+

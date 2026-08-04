@@ -1,0 +1,25 @@
+version: 2
+models:
+- name: claims_daily
+  description: Governed daily claims fact for utilization and financial reporting.
+  columns:
+  - name: claim_id
+    description: 'Classification: restricted'
+    data_tests:
+    - not_null
+    - unique
+  - name: member_id
+    description: 'Classification: restricted'
+    data_tests:
+    - not_null
+  - name: service_date
+    description: 'Classification: confidential'
+    data_tests:
+    - not_null
+  - name: paid_amount
+    description: 'Classification: confidential'
+    data_tests:
+    - not_null
+  - name: diagnosis_group
+    description: 'Classification: confidential'
+    data_tests: []

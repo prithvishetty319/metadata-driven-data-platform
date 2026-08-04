@@ -1,0 +1,17 @@
+groups:
+- name: mdp_payments_streaming
+  rules:
+  - alert: payments_streaming_SlaBreach
+    expr: mdp_pipeline_duration_minutes{pipeline="payments_streaming"} > 10
+    for: 5m
+    labels:
+      severity: critical
+      owner: payments-data@company.example
+    annotations:
+      summary: payments_streaming exceeded its 10-minute SLA
+  - alert: payments_streaming_QualityFailure
+    expr: mdp_quality_success{pipeline="payments_streaming"} == 0
+    for: 2m
+    labels:
+      severity: warning
+      owner: payments-data@company.example

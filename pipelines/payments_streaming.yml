@@ -1,0 +1,25 @@
+name: payments_streaming
+description: Low-latency payment-event ingestion with contract enforcement.
+owner: payments-data@company.example
+schedule: "*/5 * * * *"
+source:
+  type: kafka_stream
+  topic: payments.v1
+target:
+  catalog: finance
+  schema: silver
+  table: payments
+  mode: append
+  keys: [payment_id]
+columns:
+  - {name: payment_id, type: string, nullable: false, classification: restricted}
+  - {name: claim_id, type: string, nullable: false, classification: restricted}
+  - {name: amount, type: decimal, nullable: false, classification: confidential}
+  - {name: currency, type: string, nullable: false, classification: internal}
+  - {name: event_time, type: timestamp, nullable: false, classification: internal}
+quality:
+  - {type: not_null, column: payment_id}
+  - {type: accepted_values, column: currency, values: [USD, CAD]}
+dependencies: []
+sla_minutes: 10
+

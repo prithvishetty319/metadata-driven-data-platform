@@ -1,0 +1,25 @@
+version: 2
+models:
+- name: members_cdc
+  description: Current member dimension maintained from database change events.
+  columns:
+  - name: member_id
+    description: 'Classification: restricted'
+    data_tests:
+    - not_null
+    - unique
+  - name: plan_id
+    description: 'Classification: confidential'
+    data_tests:
+    - not_null
+  - name: state_code
+    description: 'Classification: confidential'
+    data_tests: []
+  - name: effective_date
+    description: 'Classification: confidential'
+    data_tests:
+    - not_null
+  - name: source_sequence
+    description: 'Classification: internal'
+    data_tests:
+    - not_null
